@@ -1,6 +1,6 @@
 :root {
     --bg-color: #0f0f0f;
-    --accent: #E50914; /* Rojo Netflix */
+    --accent: #E50914;
     --text: #ffffff;
 }
 
@@ -9,14 +9,13 @@ body {
     color: var(--text);
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
-    text-align: center; /* Centra los títulos */
+    text-align: center;
 }
 
 header { padding: 40px 20px; }
 .logo { color: var(--accent); font-weight: bold; font-size: 2rem; }
 h1 { font-size: 1.4rem; font-weight: 300; margin-top: 10px; }
 
-/* LA RAYITA ROJA QUE TE GUSTÓ */
 .row-title { 
     display: inline-block;
     font-size: 1.5rem; 
@@ -25,43 +24,49 @@ h1 { font-size: 1.4rem; font-weight: 300; margin-top: 10px; }
     margin: 30px 0 15px 0;
 }
 
-/* CARRUSEL QUE SÍ FUNCIONA (De lado a lado) */
 .netflix-row {
     display: flex;
     overflow-x: auto;
     gap: 15px;
     padding: 10px 20px;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Suave en iPhone */
+    -webkit-overflow-scrolling: touch;
 }
 
-/* Ocultar barra de scroll pero permitir movimiento */
 .netflix-row::-webkit-scrollbar { display: none; }
 
-.movie-card-featured img {
-    width: 100%;
-    height: 380px; /* Altura fija para que todas sean iguales */
-    object-fit: cover; /* Esto recorta la imagen para que encaje sin estirarse */
-    border-radius: 8px 8px 0 0; /* Bordes redondeados solo arriba */
-}
-
+/* ESTO CONTROLA EL CONTENEDOR */
 .movie-card-featured {
     min-width: 250px;
-    max-width: 250px; /* Evita que el cuadro crezca de más */
+    max-width: 250px; 
     background: #1e1e1e;
     border-radius: 12px;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Corta lo que se salga */
+    flex-shrink: 0;
 }
+
+/* ESTO CONTROLA LA IMAGEN ESPECÍFICAMENTE */
+.movie-card-featured img {
+    width: 100%;
+    height: 350px; /* Ajustamos a 350px para que quepa mejor en el iPhone */
+    object-fit: cover; 
+    display: block;
+}
+
+.card-info { 
+    padding: 15px; 
+    background: #1e1e1e; 
+    text-align: left; /* La opinión se lee mejor alineada a la izquierda */
+}
+
+.card-info h3 { font-size: 1rem; margin: 0 0 8px 0; color: var(--accent); }
 
 .card-info p { 
     font-size: 0.85rem; 
     color: #ccc; 
-    padding: 0 5px;
-    line-height: 1.4; /* Mejora la lectura */
+    line-height: 1.4; 
+    margin: 0;
 }
-
-img { width: 100%; height: auto; display: block; border-radius: 8px; }
-
-.card-info { padding: 10px; background: #1e1e1e; }
-.card-info h3 { font-size: 1rem; margin: 5px 0; }
-.card-info p { font-size: 0.8rem; color: #aaa; }
