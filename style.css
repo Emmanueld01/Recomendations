@@ -1,66 +1,62 @@
 :root {
-    --bg-color: #0f0f0f;
-    --card-bg: #1e1e1e;
-    --accent: #f9d71c; /* Color estrellas/detalles */
-    --text: #ffffff;
+    --netflix-red: #E50914;
+    --dark-bg: #141414;
+    --text-white: #ffffff;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
-    padding-bottom: 50px;
+    overflow-x: hidden;
 }
 
-header { padding: 40px 20px; text-align: center; }
-h1 { font-size: 1.8rem; color: var(--accent); }
-.subtitle { margin-left: 20px; font-size: 1.4rem; border-left: 4px solid red; padding-left: 10px; }
+header {
+    padding: 20px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+}
 
-/* CARRUSEL HORIZONTAL */
-.carousel {
+.logo { color: var(--netflix-red); font-weight: bold; font-size: 1.8rem; }
+.logo span { color: white; }
+h1 { font-size: 1.2rem; font-weight: 300; margin-top: 10px; }
+
+.section-container { padding: 20px 0 20px 20px; }
+.row-title { font-size: 1.2rem; margin-bottom: 10px; }
+
+/* ESTILO NETFLIX CAROUSEL */
+.netflix-row {
     display: flex;
     overflow-x: auto;
-    gap: 20px;
-    padding: 20px;
-    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding-bottom: 20px;
 }
-.carousel-item {
-    min-width: 80%; /* En móvil se ve casi toda la peli */
-    scroll-snap-align: center;
-    background: var(--card-bg);
-    border-radius: 15px;
+
+.netflix-row::-webkit-scrollbar { display: none; } /* Oculta barra en iPhone */
+
+.movie-card-featured {
+    min-width: 280px;
+    position: relative;
+    border-radius: 8px;
     overflow: hidden;
 }
-.carousel-item img { width: 100%; height: auto; }
 
-/* BOTONES */
-.btn-group { display: flex; justify-content: space-around; padding: 20px; }
-button {
-    background: #333;
-    color: white;
-    border: 1px solid var(--accent);
-    padding: 10px 25px;
-    border-radius: 5px;
-    font-weight: bold;
+.movie-card {
+    min-width: 160px;
+    background: #2f2f2f;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-/* REJILLA (GRID) RESPONSIVE */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
-    gap: 15px;
-    padding: 20px;
+img { width: 100%; height: auto; display: block; }
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    background: linear-gradient(transparent, black);
+    width: 100%;
 }
 
-/* Para Mac/Escritorio */
-@media (min-width: 768px) {
-    .grid { grid-template-columns: repeat(3, 1fr); }
-    .carousel-item { min-width: 300px; }
-}
-
-.card { background: var(--card-bg); border-radius: 10px; overflow: hidden; font-size: 0.8rem; }
-.card img { width: 100%; }
-.card-content { padding: 10px; }
-.meta { color: #888; display: block; margin: 5px 0; }
-.platform { display: block; margin-top: 10px; color: var(--accent); font-weight: bold; }
+.movie-info { padding: 8px; font-size: 0.8rem; }
+.movie-info h4 { margin: 5px 0; }
