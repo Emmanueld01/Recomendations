@@ -39,11 +39,19 @@ h1 { font-size: 1.4rem; font-weight: 300; margin-top: 10px; }
 .netflix-row::-webkit-scrollbar { display: none; }
 
 .movie-card-featured {
-    min-width: 250px; /* Tamaño para que se vea bien en iPhone */
+    min-width: 280px; /* Tamaño para que se vea bien en iPhone */
     background: #1e1e1e;
     border-radius: 12px;
-    overflow: hidden;
-    flex-shrink: 0; /* Evita que se aplasten */
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.card-info p { 
+    font-size: 0.85rem; 
+    color: #ccc; 
+    padding: 0 5px;
+    line-height: 1.4; /* Mejora la lectura */
 }
 
 img { width: 100%; height: auto; display: block; border-radius: 8px; }
