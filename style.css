@@ -1,62 +1,53 @@
 :root {
-    --netflix-red: #E50914;
-    --dark-bg: #141414;
-    --text-white: #ffffff;
+    --bg-color: #0f0f0f;
+    --accent: #E50914; /* Rojo Netflix */
+    --text: #ffffff;
 }
 
 body {
-    background-color: var(--dark-bg);
-    color: var(--text-white);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
-    overflow-x: hidden;
+    text-align: center; /* Centra los títulos */
 }
 
-header {
-    padding: 20px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+header { padding: 40px 20px; }
+.logo { color: var(--accent); font-weight: bold; font-size: 2rem; }
+h1 { font-size: 1.4rem; font-weight: 300; margin-top: 10px; }
+
+/* LA RAYITA ROJA QUE TE GUSTÓ */
+.row-title { 
+    display: inline-block;
+    font-size: 1.5rem; 
+    border-left: 4px solid var(--accent); 
+    padding-left: 15px;
+    margin: 30px 0 15px 0;
 }
 
-.logo { color: var(--netflix-red); font-weight: bold; font-size: 1.8rem; }
-.logo span { color: white; }
-h1 { font-size: 1.2rem; font-weight: 300; margin-top: 10px; }
-
-.section-container { padding: 20px 0 20px 20px; }
-.row-title { font-size: 1.2rem; margin-bottom: 10px; }
-
-/* ESTILO NETFLIX CAROUSEL */
+/* CARRUSEL QUE SÍ FUNCIONA (De lado a lado) */
 .netflix-row {
     display: flex;
     overflow-x: auto;
-    gap: 10px;
-    padding-bottom: 20px;
+    gap: 15px;
+    padding: 10px 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Suave en iPhone */
 }
 
-.netflix-row::-webkit-scrollbar { display: none; } /* Oculta barra en iPhone */
+/* Ocultar barra de scroll pero permitir movimiento */
+.netflix-row::-webkit-scrollbar { display: none; }
 
 .movie-card-featured {
-    min-width: 280px;
-    position: relative;
-    border-radius: 8px;
+    min-width: 250px; /* Tamaño para que se vea bien en iPhone */
+    background: #1e1e1e;
+    border-radius: 12px;
     overflow: hidden;
+    flex-shrink: 0; /* Evita que se aplasten */
 }
 
-.movie-card {
-    min-width: 160px;
-    background: #2f2f2f;
-    border-radius: 4px;
-    overflow: hidden;
-}
+img { width: 100%; height: auto; display: block; border-radius: 8px; }
 
-img { width: 100%; height: auto; display: block; }
-
-.card-overlay {
-    position: absolute;
-    bottom: 0;
-    padding: 15px;
-    background: linear-gradient(transparent, black);
-    width: 100%;
-}
-
-.movie-info { padding: 8px; font-size: 0.8rem; }
-.movie-info h4 { margin: 5px 0; }
+.card-info { padding: 10px; background: #1e1e1e; }
+.card-info h3 { font-size: 1rem; margin: 5px 0; }
+.card-info p { font-size: 0.8rem; color: #aaa; }
