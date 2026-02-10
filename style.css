@@ -30,12 +30,12 @@ h1 { font-size: 1.4rem; font-weight: 300; margin-top: 10px; }
     gap: 15px;
     padding: 10px 20px;
     scroll-behavior: smooth;
+    /* Esto permite el scroll horizontal en móviles */
     -webkit-overflow-scrolling: touch;
 }
 
 .netflix-row::-webkit-scrollbar { display: none; }
 
-/* ESTO CONTROLA EL CONTENEDOR */
 .movie-card-featured {
     min-width: 250px;
     max-width: 250px; 
@@ -44,29 +44,23 @@ h1 { font-size: 1.4rem; font-weight: 300; margin-top: 10px; }
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Corta lo que se salga */
+    overflow: hidden;
     flex-shrink: 0;
 }
 
-/* ESTO CONTROLA LA IMAGEN ESPECÍFICAMENTE */
+/* AQUÍ ESTÁ EL TRUCO: !important obliga a la imagen a medir esto */
 .movie-card-featured img {
-    width: 100%;
-    height: 350px; /* Ajustamos a 350px para que quepa mejor en el iPhone */
-    object-fit: cover; 
-    display: block;
+    width: 100% !important;
+    height: 350px !important; 
+    object-fit: cover !important; 
+    display: block !important;
 }
 
 .card-info { 
     padding: 15px; 
     background: #1e1e1e; 
-    text-align: left; /* La opinión se lee mejor alineada a la izquierda */
+    text-align: left;
 }
 
 .card-info h3 { font-size: 1rem; margin: 0 0 8px 0; color: var(--accent); }
-
-.card-info p { 
-    font-size: 0.85rem; 
-    color: #ccc; 
-    line-height: 1.4; 
-    margin: 0;
-}
+.card-info p { font-size: 0.85rem; color: #ccc; line-height: 1.4; margin: 0; }
