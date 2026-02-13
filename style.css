@@ -46,6 +46,13 @@ h1 { font-size: 1.4rem; font-weight: 300; margin-top: 10px; }
     flex-direction: column;
     overflow: hidden;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.movie-card-featured:hover {
+    transform: scale(1.05); /* Se hace un poquito más grande */
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.6); /* Brillo rojo como Netflix */
+    cursor: pointer;
 }
 
 /* AQUÍ ESTÁ EL TRUCO: !important obliga a la imagen a medir esto */
