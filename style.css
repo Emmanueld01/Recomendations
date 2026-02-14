@@ -17,47 +17,48 @@ header { padding: 40px 20px; }
 h1 { font-size: 1.4rem; font-weight: 300; margin-top: 10px; }
 
 .row-title { 
-    display: block;
-    text-align: left;
+    display: inline-block;
     font-size: 1.5rem; 
     border-left: 4px solid var(--accent); 
     padding-left: 15px;
-    margin: 30px 5% 15px 5%;
+    margin: 30px 0 15px 0;
 }
 
-/* EL CARRUSEL: Vuelve a ser fluido y libre */
 .netflix-row {
     display: flex;
     overflow-x: auto;
     gap: 15px;
-    padding: 10px 5%; /* Padding lateral para que no pegue al borde */
+    padding: 10px 20px;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
 }
 
-/* Ocultar barra de scroll pero permitir movimiento */
 .netflix-row::-webkit-scrollbar { display: none; }
 
 .movie-card-featured {
-    flex: 0 0 250px; /* Tamaño fijo para que no se encojan */
+    min-width: 250px;
+    max-width: 250px; 
     background: #1e1e1e;
     border-radius: 12px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
 }
 
-/* El efecto de agrandar solo cuando pasas el mouse */
 .movie-card-featured:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
+    cursor: pointer;
 }
 
 .movie-card-featured img {
-    width: 100%;
-    height: 350px; 
-    object-fit: cover; 
+    width: 100% !important;
+    height: 350px !important; 
+    object-fit: cover !important; 
+    display: block !important;
 }
 
 .card-info { 
@@ -76,32 +77,33 @@ h1 { font-size: 1.4rem; font-weight: 300; margin-top: 10px; }
     margin-bottom: 5px !important;
 }
 
-/* Estilo para el botón de trailer que agregamos antes */
-.card-info a {
-    display: inline-block;
-    margin-top: 12px;
-    color: white;
-    text-decoration: none;
-    font-size: 0.7rem;
-    border: 1px solid #444;
-    padding: 5px 10px;
-    border-radius: 4px;
-}
-
 footer {
+    padding: 25px 20px;
     padding: 60px 20px;
     text-align: center;
+    margin-top: 40px;
     margin-top: 50px;
     border-top: 1px solid #222;
+    background-color: var(--bg-color);
 }
 
-.footer-brand { color: var(--accent); font-weight: bold; font-size: 1.2rem; }
-.footer-copy { color: #666; font-size: 0.75rem; }
-.footer-dedication { color: #444; font-size: 0.8rem; margin-top: 10px; font-style: italic; }
+.footer-brand {
+    color: var(--accent); /* El rojo de tu logo */
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
 
-/* Ajuste para pantallas pequeñas */
-@media (max-width: 600px) {
-    .movie-card-featured {
-        flex: 0 0 220px; /* Un pelín más chicas en móvil para que se vea la que sigue */
-    }
+.footer-copy {
+    color: #666;
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+}
+
+.footer-dedication {
+    color: #444;
+    font-size: 0.8rem;
+    margin-top: 15px;
+    font-style: italic;
 }
