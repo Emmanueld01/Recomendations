@@ -26,15 +26,22 @@ h1 { font-size: 1.4rem; font-weight: 300; margin-top: 10px; }
 
 .netflix-row {
     display: flex;
-    overflow-x: auto;
+    flex-wrap: nowrap; /* ¡ESTA ES LA CLAVE! Impide que las fotos se corten o bajen */
+    overflow-x: auto;  /* Permite que deslices hacia la derecha */
     gap: 15px;
-    padding: 10px 20px;
+    padding: 20px;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    
+    /* Esto asegura que el carrusel sea una línea recta infinita */
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.netflix-row::-webkit-scrollbar { display: none; }
-
+/* Ocultamos la barra gris fea, pero dejamos que se mueva */
+.netflix-row::-webkit-scrollbar {
+    display: none;
+}
 .movie-card-featured {
     min-width: 250px;
     max-width: 250px; 
