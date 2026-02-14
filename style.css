@@ -13,40 +13,29 @@ body {
 }
 
 header {
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(15, 15, 15, 0.95); /* Negro casi total, muy Netflix */
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid var(--accent); /* Línea roja delgada abajo */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 30px 20px;
+    background-color: var(--bg-color); /* Fondo sólido, sin transparencias raras */
+    border-bottom: 1px solid #333; /* Una línea sutil, no roja gruesa */
 }
 
 .logo { 
-    color: var(--accent); /* ¡Aquí vuelve el ROJO! */
+    color: var(--accent); 
     font-weight: bold; 
-    font-size: 2.2rem; 
+    font-size: 2.5rem; 
     letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family: 'Arial Black', sans-serif; /* Fuente más gruesa tipo Netflix */
+    cursor: pointer;
 }
 
 .logo span { 
-    color: var(--text); /* El "FLIX" en blanco */
+    color: var(--text); 
 }
 
 header h1 { 
-    font-size: 1rem; 
-    font-weight: 400; 
-    margin-top: 5px; 
-    color: #ccc; 
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 1.1rem; 
+    font-weight: 300; 
+    margin-top: 10px; 
+    color: #888; 
 }
-
 .row-title { 
     display: inline-block;
     font-size: 1.5rem; 
